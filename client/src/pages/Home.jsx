@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import mainPage from "../assets/mainPage.webp";
 import { FaArrowRight } from "react-icons/fa";
+import { BlurText } from "../components/ui/BlurText";
 
 function Home() {
   return (
@@ -11,7 +12,7 @@ function Home() {
           <div className="font-bold sm:text-5xl text-3xl text-[#F1FDDB]">
             Effortlessly book <br />
             appointments, track your <br /> health, and gain insights <br />{" "}
-            —all just a <span className="text-[#34F655]">click</span> away.
+            <BlurText text="- all just a click away" className="text-[#34F655]" delay={50} />
           </div>
           <Link
             to={"/offer"}
