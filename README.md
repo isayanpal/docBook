@@ -1,8 +1,9 @@
 # DocBook
-<img src="images/1.png">
-<img src="images/2.png">
-<img src="images/3.png">
-<img src="images/4.png">
+
+<img src="images/1stImg.png">
+<img src="images/2ndImg.png">
+<img src="images/3rdImg.png">
+<img src="images/4thImg.png">
 <img src="images/5.png">
 <img src="images/6.png">
 
