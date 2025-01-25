@@ -84,7 +84,7 @@ function Home() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 shadow-lg"
+              className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 shadow-lg flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 + index * 0.2, duration: 0.5 }}
