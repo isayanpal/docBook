@@ -7,11 +7,13 @@ import toast from "react-hot-toast";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Loading state
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading to true
     dispatch(loginUser({ username, password }))
       .unwrap()
       .then(() => {
@@ -20,7 +22,10 @@ const Login = () => {
       })
       .catch((error) => {
         console.error("Login failed", error);
-        toast.error("Logged failed");
+        toast.error("Login failed");
+      })
+      .finally(() => {
+        setIsLoading(false); // Reset loading state
       });
   };
 
@@ -74,9 +79,14 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className={`group relative flex w-full justify-center py-2 px-4 border border-transparent text-sm font-semibold rounded-md text-[#080e01] bg-[#bef96f] hover:bg-[#9ee054] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bef96f]`}
+              disabled={isLoading} // Disable button when loading
+              className={`group relative flex w-full justify-center py-2 px-4 border border-transparent text-sm font-semibold rounded-md text-[#080e01] ${
+                isLoading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-[#bef96f] hover:bg-[#9ee054]"
+              } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bef96f]`}
             >
-              Login
+              {isLoading ? "Logging in..." : "Login"} {/* Show loading text */}
             </button>
           </div>
         </form>
